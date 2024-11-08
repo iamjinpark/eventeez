@@ -1,7 +1,14 @@
+<!-- Template.vue -->
 <template>
-  <div class="h-screen bg-blue-500 flex items-center justify-center">
-    <h1 class="text-white">Hello, Full Screen Height!</h1>
+  <div class="flex items-center justify-center min-h-screen">
+    <div
+      class="bg-black text-white w-[360px] sm:w-[768px] h-screen border-2 flex items-center justify-center text-center"
+    >
+      <slot />
+    </div>
   </div>
 </template>
 
 <script setup></script>
+
+<style scoped></style>

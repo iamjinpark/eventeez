@@ -1,9 +1,9 @@
 <template>
-  <Template />
+  <Invitation />
 </template>
 
 <script setup>
-import Template from "@/layout/Template.vue";
+import Invitation from "@/components/pages/Invitation.vue";
 </script>
 
 <style scoped></style>
