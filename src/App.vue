@@ -1,9 +1,14 @@
+<!-- App.vue -->
 <template>
-  <Invitation />
+  <Template>
+    <!-- <header /> -->
+    <router-view> </router-view>
+    <!-- <footer /> -->
+  </Template>
 </template>
 
 <script setup>
-import Invitation from "@/components/pages/Invitation.vue";
+import Template from "@/layout/Template.vue";
 </script>
 
 <style scoped></style>
