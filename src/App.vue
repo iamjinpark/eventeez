@@ -1,14 +1,13 @@
-<!-- App.vue -->
 <template>
-  <Template>
-    <!-- <header /> -->
-    <router-view> </router-view>
-    <!-- <footer /> -->
-  </Template>
+  <Header />
+  <MainTemplate />
+  <Footer />
 </template>
 
 <script setup>
-import Template from "@/layout/Template.vue";
+import MainTemplate from "@/layout/MainTemplate.vue";
+import Header from "@/layout/Header.vue";
+import Footer from "@/layout/Footer.vue";
 </script>
 
 <style scoped></style>

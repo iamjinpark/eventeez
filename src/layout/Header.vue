@@ -1,7 +1,9 @@
 <template>
-  <div>header</div>
+  <header class="h-[50px] border-b-2 flex items-center justify-center">
+    <h1>eventeez</h1>
+  </header>
 </template>
 
 <script setup></script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
