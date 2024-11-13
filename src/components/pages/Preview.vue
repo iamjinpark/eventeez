@@ -1,17 +1,16 @@
 <template>
   <div class="flex flex-col">
     <h1>Preview Page</h1>
-    <button @click="goToInvitation">최종 초대장으로 이동</button>
+    <button type="button" @click="goToNext">Invitation 페이지 이동</button>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
-
 const router = useRouter();
 
-function goToInvitation() {
-  router.push("/Invitation");
+function goToNext() {
+  router.push("/invitation");
 }
 </script>
 

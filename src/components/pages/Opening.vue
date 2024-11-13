@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <h1>Form Page</h1>
-    <button type="button" @click="goToTypePage">type 페이지 이동</button>
+    <h1>Opening Page</h1>
+    <button type="button" @click="goToNext">Home 페이지 이동</button>
   </div>
 </template>
 
@@ -9,8 +9,8 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 
-function goToTypePage() {
-  router.push("/type");
+function goToNext() {
+  router.push("/home");
 }
 </script>
 

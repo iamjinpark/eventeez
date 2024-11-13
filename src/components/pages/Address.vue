@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <h1>Home Page</h1>
-    <button type="button" @click="goToNext">Gallery 페이지 이동</button>
+    <h1>Address Page</h1>
+    <button type="button" @click="goToNext">content 페이지 이동</button>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 
 function goToNext() {
-  router.push("/gallery");
+  router.push("/make/content");
 }
 </script>
 

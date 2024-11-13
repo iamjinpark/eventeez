@@ -4,7 +4,7 @@
     <div
       class="w-full sm:w-[768px] h-screen border-2 flex items-center justify-center text-center"
     >
-      <slot />
+      <router-view></router-view>
     </div>
   </div>
 </template>

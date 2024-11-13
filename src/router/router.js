@@ -1,49 +1,67 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/components/pages/Home.vue";
-import Type from "@/components/pages/Type.vue";
-import EziType from "@/components/pages/EziType.vue";
-import YongType from "@/components/pages/YongType.vue";
-import Form from "@/components/pages/Form.vue";
-import Invitation from "@/components/pages/Invitation.vue";
-import Preview from "@/components/pages/Preview.vue";
 
 const router = createRouter({
   history: createWebHistory(""),
   routes: [
     {
+      name: "root",
       path: "/",
-      name: "home",
-      component: Home,
-    },
-    {
-      path: "/form",
-      name: "form",
-      component: Form,
-    },
-    {
-      path: "/type",
-      name: "type",
-      component: Type,
-    },
-    {
-      path: "/eziType",
-      name: "eziType",
-      component: EziType,
-    },
-    {
-      path: "/yongType",
-      name: "yongType",
-      component: YongType,
-    },
-    {
-      path: "/preview",
-      name: "preview",
-      component: Preview,
-    },
-    {
-      path: "/invitation",
-      name: "invitation",
-      component: Invitation,
+      component: () => import("@/layout/Template.vue"),
+      children: [
+        {
+          name: "opening",
+          path: "",
+          component: () => import("@/components/pages/Opening.vue"),
+        },
+        {
+          name: "home",
+          path: "/home",
+          component: () => import("@/components/pages/Home.vue"),
+        },
+        {
+          name: "gallery",
+          path: "/gallery",
+          component: () => import("@/components/pages/Gallery.vue"),
+          children: [
+            {
+              name: "detail",
+              path: "/:Id",
+              component: () => import("@/components/pages/GalleryDetail.vue"),
+            },
+          ],
+        },
+        {
+          path: "make",
+          redirect: "/make/date", // make로 이동 시 date로 리다이렉트
+          children: [
+            {
+              name: "date",
+              path: "date",
+              component: () => import("@/components/pages/Date.vue"),
+            },
+            {
+              name: "address",
+              path: "address",
+              component: () => import("@/components/pages/Address.vue"),
+            },
+            {
+              name: "content",
+              path: "content",
+              component: () => import("@/components/pages/Content.vue"),
+            },
+            {
+              name: "preview",
+              path: "preview",
+              component: () => import("@/components/pages/Preview.vue"),
+            },
+          ],
+        },
+        {
+          name: "invitation",
+          path: "/invitation",
+          component: () => import("@/components/pages/Invitation.vue"),
+        },
+      ],
     },
   ],
 });

@@ -1,17 +1,16 @@
 <template>
   <div class="flex flex-col">
-    <h1>Ezi Page</h1>
-    <button @click="goToPreview">만들기로 이동</button>
+    <h1>Content Page</h1>
+    <button type="button" @click="goToNext">preview 페이지 이동</button>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from "vue-router";
-
 const router = useRouter();
 
-function goToPreview() {
-  router.push("/preview");
+function goToNext() {
+  router.push("/make/preview");
 }
 </script>
 
