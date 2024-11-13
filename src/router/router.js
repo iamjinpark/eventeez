@@ -61,6 +61,11 @@ const router = createRouter({
           path: "/invitation",
           component: () => import("@/components/pages/Invitation.vue"),
         },
+        {
+          name: "ui",
+          path: "/ui",
+          component: () => import("@/components/pages/ui.vue"),
+        },
       ],
     },
   ],
