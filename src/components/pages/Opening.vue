@@ -27,11 +27,11 @@ const router = useRouter();
 const isShuffled = ref(false);
 
 const images = reactive([
-  { path: "../../../public/year-end.png", alt: "연말", style: {} },
-  { path: "../../../public/or.png", alt: "또는", style: {} },
-  { path: "../../../public/new-year.png", alt: "새해", style: {} },
-  { path: "../../../public/party.png", alt: "모임", style: {} },
-  { path: "../../../public/invitation.png", alt: "초대장", style: {} },
+  { path: "/year-end.png", alt: "연말", style: {} },
+  { path: "/or.png", alt: "또는", style: {} },
+  { path: "/new-year.png", alt: "새해", style: {} },
+  { path: "/party.png", alt: "모임", style: {} },
+  { path: "/invitation.png", alt: "초대장", style: {} },
 ]);
 
 // 무작위 위치로 이미지 이동
