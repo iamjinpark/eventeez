@@ -1,7 +1,9 @@
 <template>
-  <Header />
-  <MainTemplate />
-  <Footer />
+  <div class="pt-[50px]">
+    <Header />
+    <MainTemplate />
+    <Footer />
+  </div>
 </template>
 
 <script setup>

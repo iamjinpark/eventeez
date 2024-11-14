@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="border-t-2 h-[80px] flex flex-col justify-center items-center text-[#BDBDBD]"
+    class="border-t-2 border-black h-[80px] flex flex-col justify-center items-center text-[#BDBDBD]"
   >
     <div>© 2024 eventeez. All right reserved.</div>
     <div class="flex justify-center gap-1">

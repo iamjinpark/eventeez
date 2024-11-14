@@ -1,6 +1,11 @@
 <!-- src/components/BaseButton.vue -->
 <template>
-  <button :class="buttonClasses" :disabled="disabled" @click="handleClick">
+  <button
+    type="button"
+    :class="buttonClasses"
+    :disabled="disabled"
+    @click="handleClick"
+  >
     <slot></slot>
   </button>
 </template>
@@ -43,14 +48,15 @@ const buttonClasses = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #bdbdbd;
+  background-color: #c7c7c7;
+  color: black;
   border-radius: 12px;
   font-size: 1.125rem;
 }
 
 .base-button:hover:not(.btn-disabled) {
+  background-color: black;
   color: white;
-  background-color: #4b4b4b;
 }
 
 /* 크기 */
@@ -60,7 +66,7 @@ const buttonClasses = computed(() => {
 }
 
 .btn-large {
-  width: 320px;
+  width: 250px;
   height: 70px;
 }
 
