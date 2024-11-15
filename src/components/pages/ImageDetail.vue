@@ -3,7 +3,11 @@
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50"
     @click="closeModal"
   >
-    <div v-motion-pop class="flex flex-col justify-center items-center gap-6">
+    <div
+      v-motion-pop
+      @click.stop
+      class="flex flex-col justify-center items-center gap-6"
+    >
       <img
         :src="image?.src"
         :alt="image?.alt"
@@ -39,7 +43,7 @@ function closeModal() {
 }
 
 function goToMakePage() {
-  router.push("/make");
+  router.push({ name: "date", params: { id: props.id } });
 }
 </script>
 

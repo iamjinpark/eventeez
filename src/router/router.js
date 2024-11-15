@@ -32,28 +32,34 @@ const router = createRouter({
           ],
         },
         {
-          path: "make",
-          redirect: "/make/date", // make로 이동 시 date로 리다이렉트
+          name: "make",
+          path: "/make/:id",
+          component: () => import("@/components/pages/Make.vue"),
+          props: true, // id를 컴포넌트로 전달
           children: [
             {
               name: "date",
               path: "date",
               component: () => import("@/components/pages/Date.vue"),
+              props: true,
             },
             {
               name: "address",
               path: "address",
               component: () => import("@/components/pages/Address.vue"),
+              props: true,
             },
             {
               name: "content",
               path: "content",
               component: () => import("@/components/pages/Content.vue"),
+              props: true,
             },
             {
               name: "preview",
               path: "preview",
               component: () => import("@/components/pages/Preview.vue"),
+              props: true,
             },
           ],
         },

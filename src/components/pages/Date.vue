@@ -1,17 +1,17 @@
 <template>
-  <div class="flex flex-col">
+  <div>
     <h1>Date Page</h1>
-    <button type="button" @click="goToNext">address 페이지 이동</button>
+    <p>ID: {{ id }}</p>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-const router = useRouter();
+import { defineProps } from "vue";
 
-function goToNext() {
-  router.push("/make/address");
-}
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
+  },
+});
 </script>
-
-<style lang="scss" scoped></style>
