@@ -3,7 +3,7 @@
     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50"
     @click="closeModal"
   >
-    <div class="flex flex-col justify-center items-center gap-6">
+    <div v-motion-pop class="flex flex-col justify-center items-center gap-6">
       <img
         :src="image?.src"
         :alt="image?.alt"
@@ -18,7 +18,7 @@
 import { defineProps, computed } from "vue";
 import { useRouter } from "vue-router";
 import { imageData } from "@/data/imageData.js";
-import CustomButton from "../atoms/CustomButton.vue";
+import CustomButton from "@/components/atoms/CustomButton.vue";
 
 const props = defineProps({
   id: {

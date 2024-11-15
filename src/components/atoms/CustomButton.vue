@@ -58,6 +58,7 @@ const buttonClasses = computed(() => {
 .base-button:hover:not(.btn-disabled) {
   background-color: black;
   color: white;
+  border: none;
 }
 
 /* 크기 */
