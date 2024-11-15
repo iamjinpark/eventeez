@@ -1,12 +1,15 @@
 <template>
   <footer
-    class="border-t-2 border-black h-[80px] flex flex-col justify-center items-center text-[#BDBDBD]"
+    class="w-full border-t border-black flex flex-col gap-4 justify-between items-center py-6 box-border"
   >
-    <div>© 2024 eventeez. All right reserved.</div>
-    <div class="flex justify-center gap-1">
-      <p>contact</p>
-      <span>:</span>
-      <a href="mailto:eventeez@gmail.com">eventeez@gmail.com</a>
+    <div class="text-center text-sm">
+      <p>Want to share your awesome</p>
+      <p>invitation design? Send it our way</p>
+      <p>We're excited to see it!</p>
+    </div>
+    <div class="w-[330px] flex justify-between text-xs">
+      <a href="mailto:eventeez@gmail.com"> eventeez@gmail.com </a>
+      <div>© eventeez. All right reserved.</div>
     </div>
   </footer>
 </template>

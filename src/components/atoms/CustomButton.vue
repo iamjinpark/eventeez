@@ -48,7 +48,8 @@ const buttonClasses = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #c7c7c7;
+  background-color: white;
+  border: 1px solid;
   color: black;
   border-radius: 12px;
   font-size: 1.125rem;

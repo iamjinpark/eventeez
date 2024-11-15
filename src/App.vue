@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-[50px]">
+  <div class="h-dvh pt-[50px]">
     <Header />
     <MainTemplate />
     <Footer />
