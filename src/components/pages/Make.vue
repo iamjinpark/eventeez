@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Make Page</h1>
-    <p>Selected Image ID: {{ id }}</p>
+  <div class="flex flex-col items-center justify-center">
     <router-view />
   </div>
 </template>

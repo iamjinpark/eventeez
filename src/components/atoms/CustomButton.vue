@@ -16,7 +16,7 @@ import { computed } from "vue";
 // Props
 const props = defineProps({
   size: {
-    default: "large",
+    default: "medium",
   },
   disabled: {
     default: false,
@@ -67,8 +67,13 @@ const buttonClasses = computed(() => {
   height: 70px;
 }
 
-.btn-large {
+.btn-medium {
   width: 250px;
+  height: 70px;
+}
+
+.btn-large {
+  width: 330px;
   height: 70px;
 }
 
