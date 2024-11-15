@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full relative flex flex-col justify-center items-center gap-10"
+    class="w-full relative flex flex-col justify-center items-center gap-12"
     @click="shuffleImages"
   >
     <div class="flex flex-col items-center justify-center gap-2">
@@ -13,7 +13,6 @@
         :style="src.style"
       />
     </div>
-
     <CustomButton @click.stop="goToHomePage">Want to make?</CustomButton>
   </div>
 </template>

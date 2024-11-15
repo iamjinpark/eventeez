@@ -24,9 +24,10 @@ const router = createRouter({
           component: () => import("@/components/pages/Gallery.vue"),
           children: [
             {
-              name: "detail",
-              path: "/:Id",
-              component: () => import("@/components/pages/GalleryDetail.vue"),
+              name: "imageDetail",
+              path: ":id",
+              component: () => import("@/components/pages/ImageDetail.vue"),
+              props: true,
             },
           ],
         },
