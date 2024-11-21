@@ -8,23 +8,27 @@ export const imageData = [
     artist: "박예지",
     date: {
       position: { top: "10px", left: "50px" },
-      fontSize: "20px",
+      fontSize: "30px",
       fontFamily: "Arial, sans-serif",
+      color: "white",
     },
     time: {
       position: { top: "50px", left: "100px" },
-      fontSize: "50px",
+      fontSize: "30px",
       fontFamily: "Arial, sans-serif",
+      color: "white",
     },
     address: {
-      position: { top: "120px", left: "250px" },
-      fontSize: "70px",
+      position: { top: "100px", left: "100px" },
+      fontSize: "30px",
       fontFamily: "Arial, sans-serif",
+      color: "white",
     },
     content: {
-      position: { top: "200px", left: "320px" },
-      fontSize: "80px",
+      position: { top: "300px", left: "80px" },
+      fontSize: "30px",
       fontFamily: "Arial, sans-serif",
+      color: "white",
     },
   },
   {
