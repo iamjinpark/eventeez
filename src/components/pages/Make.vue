@@ -5,12 +5,9 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { useRoute } from "vue-router";
 
-const props = defineProps({
-  id: {
-    type: String,
-    required: true,
-  },
-});
+// 라우트에서 id 가져오기
+const route = useRoute();
+const id = route.params.id || null;
 </script>
