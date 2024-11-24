@@ -4,5 +4,8 @@ import "@/style/style.css";
 import App from "./App.vue";
 import router from "./router/router";
 import { MotionPlugin } from "@vueuse/motion";
+import { createPinia } from "pinia";
 
-createApp(App).use(MotionPlugin).use(router).mount("#app");
+const pinia = createPinia();
+
+createApp(App).use(pinia).use(MotionPlugin).use(router).mount("#app");

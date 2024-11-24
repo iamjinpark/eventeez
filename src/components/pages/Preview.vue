@@ -1,6 +1,6 @@
 <template>
-  <div class="w-[330px] flex flex-col items-center">
-    <img src="/step4.png" alt="날짜 입력" class="py-4" />
+  <div class="w-[330px] flex flex-col items-center py-4">
+    <img src="/step4.png" alt="날짜 입력" class="pb-4" />
     <div class="relative flex flex-col gap-6">
       <OverlayImageInput :imageId="currentImageId" />
       <div class="text-center text-2xl font-extrabold">
