@@ -28,9 +28,11 @@
 </template>
 
 <script setup>
-import { reactive, computed, onMounted } from "vue";
+import { reactive, computed, onMounted, ref } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
+
+const activeInputRef = ref(null);
 
 const route = useRoute();
 const imageId = Number(route.params.id); // route.params.id를 숫자로 변환
@@ -94,7 +96,7 @@ const getFieldStyle = (fieldName) => {
 const handleFocus = (inputRef) => {
   activeInputRef.value = inputRef; // 현재 활성화된 입력 필드 설정
   setTimeout(() => {
-    inputRef.scrollIntoView({ behavior: "smooth", block: "center" });
+    inputRef.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }, 200); // 키보드 활성화를 기다림
 };
 
@@ -102,7 +104,7 @@ const handleFocus = (inputRef) => {
 onMounted(() => {
   window.addEventListener("resize", () => {
     if (activeInputRef.value) {
-      activeInputRef.value.scrollIntoView({ behavior: "smooth", block: "center" });
+      activeInputRef.value.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   });
 });
