@@ -1,6 +1,7 @@
 <template>
   <div class="w-[330px] flex flex-col items-center">
-    <div class="relative flex flex-col gap-6">
+    <img src="/step1.png" alt="날짜 입력" class="py-4" />
+    <div class="relative flex flex-col gap-4">
       <OverlayImageInput :imageId="currentImageId" />
       <CustomButton size="large" @click="goToAddress">Next</CustomButton>
     </div>
