@@ -18,6 +18,7 @@
         :type="field.type || 'text'"
         :placeholder="`Enter ${key}`"
         class="w-full h-[65px] border-[1px] border-black bg-gray-100 text-center"
+        @focus="handleFocus($event.target)"
       />
     </div>
   </div>
@@ -27,7 +28,7 @@
 </template>
 
 <script setup>
-import { reactive, computed } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
 
@@ -88,4 +89,21 @@ const getFieldStyle = (fieldName) => {
     color: field.color || "black",
   };
 };
+
+// 입력 필드 포커스 시 스크롤
+const handleFocus = (inputRef) => {
+  activeInputRef.value = inputRef; // 현재 활성화된 입력 필드 설정
+  setTimeout(() => {
+    inputRef.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 200); // 키보드 활성화를 기다림
+};
+
+// 키보드 활성화 시 입력 필드가 가려지는지 확인
+onMounted(() => {
+  window.addEventListener("resize", () => {
+    if (activeInputRef.value) {
+      activeInputRef.value.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+});
 </script>
