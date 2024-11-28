@@ -19,16 +19,7 @@ const router = useRouter();
 // URL에서 ID 추출
 const currentImageId = route.params.id;
 
-// 세션 스토리지에서 값 가져오기
-const sessionDate = sessionStorage.getItem("date");
-console.log("Session Date:", sessionDate); // 디버깅 용
-
 function goToContent() {
-  if (address.value.trim()) {
-    sessionStorage.setItem("address", address.value);
-  } else {
-    console.error("address is empty!");
-  }
   router.push({ name: "content", params: { id: currentImageId } });
 }
 </script>

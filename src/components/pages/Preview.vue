@@ -24,13 +24,6 @@ const router = useRouter();
 const currentImageId = route.params.id;
 
 function goToPreview() {
-  if (content.value.trim()) {
-    // 로컬 스토리지에 저장
-    sessionStorage.setItem("content", content.value);
-  } else {
-    console.error("content is empty!");
-  }
-
   router.push({ name: "preview", params: { id: currentImageId } });
 }
 </script>

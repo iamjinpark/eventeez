@@ -20,13 +20,6 @@ const router = useRouter();
 const currentImageId = route.params.id;
 
 function goToAddress() {
-  if (date.value.trim()) {
-    // 로컬 스토리지에 저장
-    sessionStorage.setItem("date", date.value);
-  } else {
-    console.error("Date input is empty!");
-  }
-
   router.push({ name: "address", params: { id: currentImageId } });
 }
 </script>
