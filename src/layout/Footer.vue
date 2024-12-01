@@ -1,7 +1,7 @@
 <template>
   <footer class="w-full border-t border-black flex flex-col gap-5 justify-between items-center pt-6 box-border">
     <div class="flex flex-col gap-[6px] justify-center items-center">
-      <p class="font-semibold">we want to bring fun moments to life</p>
+      <p class="text-sm font-semibold">we want to bring fun moments to life</p>
       <div class="text-xs">© copyrigt 2024. EVENTEEZ</div>
     </div>
     <div class="w-full py-7 flex flex-col justify-center items-center gap-6 bg-black text-white">
