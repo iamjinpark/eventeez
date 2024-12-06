@@ -3,32 +3,32 @@ import { v4 as uuidv4 } from "uuid";
 export const imageData = [
   {
     id: 1,
-    src: "https://i.pinimg.com/736x/d4/07/ce/d407cefae910f2bf32888beec3446cef.jpg",
+    src: "/testInviImg.png",
     alt: "Example Image 1",
     artist: "박예지",
     date: {
       position: { top: "10px", left: "50px" },
       fontSize: "30px",
       fontFamily: "Arial, sans-serif",
-      color: "white",
+      color: "blue",
     },
     time: {
       position: { top: "50px", left: "100px" },
       fontSize: "30px",
       fontFamily: "Arial, sans-serif",
-      color: "white",
+      color: "blue",
     },
     address: {
       position: { top: "100px", left: "100px" },
       fontSize: "30px",
       fontFamily: "Arial, sans-serif",
-      color: "white",
+      color: "blue",
     },
     content: {
       position: { top: "300px", left: "80px" },
       fontSize: "30px",
       fontFamily: "Arial, sans-serif",
-      color: "white",
+      color: "blue",
     },
   },
   {
