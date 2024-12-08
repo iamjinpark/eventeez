@@ -2,7 +2,7 @@
   <div class="h-dvh pt-[50px]">
     <Header />
     <MainTemplate />
-    <Footer />
+    <Footer v-if="!isMakePage" />
   </div>
 </template>
 
@@ -10,8 +10,8 @@
 import MainTemplate from "@/layout/MainTemplate.vue";
 import Header from "@/layout/Header.vue";
 import Footer from "@/layout/Footer.vue";
-import { reactive, provide } from "vue";
-import { useRouter } from "vue-router";
+import { reactive, provide, computed } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 const sharedState = reactive({}); // 이미지 ID별 상태 관리
 
@@ -24,8 +24,10 @@ const resetSharedState = (id) => {
   };
 };
 
-// Vue Router 사용
 const router = useRouter();
+const route = useRoute();
+
+const isMakePage = computed(() => route.path.startsWith("/make"));
 
 // 라우터 전환 시 상태 초기화
 router.beforeEach((to, from, next) => {
