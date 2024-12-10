@@ -1,25 +1,31 @@
 <template>
   <div v-if="image" class="relative w-full">
+    <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
+    <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mb-4">
+      <label :for="key" class="sr-only">{{ key }}</label>
+
+      <!-- Date Input 조건부 렌더링 -->
+      <v-text-field v-if="key === 'date'" v-model="currentFields[key]" label="" type="date" class="w-full h-[60px]"></v-text-field>
+
+      <!-- 일반 입력 필드 -->
+      <input
+        v-else="key !== 'date'"
+        v-model="currentFields[key]"
+        :id="key"
+        type="text"
+        :placeholder="`Enter ${key}`"
+        autocomplete="off"
+        class="w-full h-[60px] border-[1px] border-black bg-gray-100 text-center"
+        @focus="handleFocus($event.target)"
+      />
+    </div>
+
     <!-- 이미지 -->
     <img :src="image.src" :alt="image.alt" class="object-cover w-full h-[410px]" />
 
     <!-- 텍스트 오버레이 -->
     <div v-for="(value, key) in currentFields" :key="key" :style="getFieldStyle(key)" class="pointer-events-none">
       {{ value || " " }}
-    </div>
-
-    <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
-    <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mt-4">
-      <label :for="key" class="sr-only">{{ key }}</label>
-      <input
-        v-model="currentFields[key]"
-        :id="key"
-        type="text"
-        :placeholder="`Enter ${key}`"
-        autocomplete="off"
-        class="w-full h-[65px] border-[1px] border-black bg-gray-100 text-center"
-        @focus="handleFocus($event.target)"
-      />
     </div>
   </div>
   <div v-else>
@@ -87,6 +93,7 @@ const getFieldStyle = (fieldName) => {
     fontSize: field.fontSize || "16px",
     fontFamily: field.fontFamily || "Arial, sans-serif",
     color: field.color || "black",
+    fontWeight: field.fontWeight || "normal",
   };
 };
 

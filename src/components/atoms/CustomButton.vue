@@ -1,11 +1,6 @@
 <!-- src/components/BaseButton.vue -->
 <template>
-  <button
-    type="button"
-    :class="buttonClasses"
-    :disabled="disabled"
-    @click="handleClick"
-  >
+  <button type="button" :class="buttonClasses" :disabled="disabled" @click="handleClick">
     <slot></slot>
   </button>
 </template>
@@ -34,11 +29,7 @@ function handleClick(event) {
 
 // 버튼 클래스 계산
 const buttonClasses = computed(() => {
-  return [
-    "base-button",
-    `btn-${props.size}`,
-    { "btn-disabled": props.disabled },
-  ];
+  return ["base-button", `btn-${props.size}`, { "btn-disabled": props.disabled }];
 });
 </script>
 
@@ -64,17 +55,17 @@ const buttonClasses = computed(() => {
 /* 크기 */
 .btn-small {
   width: 160px;
-  height: 70px;
+  height: 60px;
 }
 
 .btn-medium {
   width: 250px;
-  height: 70px;
+  height: 60px;
 }
 
 .btn-large {
   width: 330px;
-  height: 70px;
+  height: 60px;
 }
 
 /* 비활성화 */
