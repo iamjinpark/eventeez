@@ -6,6 +6,7 @@ import router from "./router/router";
 import { MotionPlugin } from "@vueuse/motion";
 import { createPinia } from "pinia";
 import { createVuetify } from "vuetify";
+import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles"; // Vuetify 기본 스타일
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
@@ -13,6 +14,9 @@ import * as directives from "vuetify/directives";
 const vuetify = createVuetify({
   components,
   directives,
+  icons: {
+    defaultSet: "mdi",
+  },
 });
 
 const pinia = createPinia();

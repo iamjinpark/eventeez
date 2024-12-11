@@ -2,22 +2,20 @@
   <div v-if="image" class="relative w-full">
     <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
     <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mb-4">
-      <label :for="key" class="sr-only">{{ key }}</label>
-
       <!-- Date Input 조건부 렌더링 -->
-      <v-text-field v-if="key === 'date'" v-model="currentFields[key]" label="" type="date" class="w-full h-[60px]"></v-text-field>
+      <dateInput v-if="key == 'date'" v-model="currentFields[key]" :placeholder="`Enter ${key}`" />
 
       <!-- 일반 입력 필드 -->
-      <input
+      <v-text-field
         v-else="key !== 'date'"
+        variant="solo-filled"
         v-model="currentFields[key]"
         :id="key"
         type="text"
         :placeholder="`Enter ${key}`"
         autocomplete="off"
-        class="w-full h-[60px] border-[1px] border-black bg-gray-100 text-center"
-        @focus="handleFocus($event.target)"
-      />
+        class="w-full h-[60px]"
+      ></v-text-field>
     </div>
 
     <!-- 이미지 -->
@@ -37,8 +35,7 @@
 import { inject, computed, ref, onMounted } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
-
-const activeInputRef = ref(null);
+import dateInput from "../atoms/dateInput.vue";
 
 // sharedState와 resetSharedState를 inject로 가져오기
 const sharedState = inject("sharedState");
@@ -96,21 +93,4 @@ const getFieldStyle = (fieldName) => {
     fontWeight: field.fontWeight || "normal",
   };
 };
-
-// 입력 필드 포커스 시 스크롤
-const handleFocus = (inputRef) => {
-  activeInputRef.value = inputRef;
-  setTimeout(() => {
-    inputRef.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, 200);
-};
-
-// 입력 필드가 가려지지 않도록 조정
-onMounted(() => {
-  window.addEventListener("resize", () => {
-    if (activeInputRef.value) {
-      activeInputRef.value.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
-  });
-});
 </script>
