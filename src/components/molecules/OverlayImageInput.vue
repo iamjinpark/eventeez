@@ -3,7 +3,7 @@
     <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
     <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mb-4">
       <!-- Date Input 조건부 렌더링 -->
-      <dateInput v-if="key == 'date'" v-model="currentFields[key]" :placeholder="`Enter ${key}`" />
+      <dateInput v-if="key == 'date'" v-model="currentFields[key]" :placeholder="`set a ${key}`" />
 
       <!-- 일반 입력 필드 -->
       <v-text-field
@@ -12,7 +12,7 @@
         v-model="currentFields[key]"
         :id="key"
         type="text"
-        :placeholder="`Enter ${key}`"
+        :placeholder="`set a ${key}`"
         autocomplete="off"
         class="w-full h-[60px]"
       ></v-text-field>
@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { inject, computed, ref, onMounted } from "vue";
+import { inject, computed, ref, onMounted, watch } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
 import dateInput from "../atoms/dateInput.vue";
