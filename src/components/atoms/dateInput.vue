@@ -11,7 +11,11 @@
           hide-details
           :placeholder="placeholder"
           class="h-[60px] rounded-none"
-        ></v-text-field>
+          readonly
+          @click="menu = true"
+          @focus.prevent
+        >
+        </v-text-field>
       </template>
 
       <!-- Vuetify Date-picker -->
