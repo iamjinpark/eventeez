@@ -1,13 +1,13 @@
 <template>
   <div class="w-[330px] flex flex-col items-center py-4">
     <img src="/step4.png" alt="날짜 입력" class="pb-4" />
-    <div class="relative flex flex-col gap-6">
-      <div ref="imageContainer">
-        <OverlayImageInput :imageId="currentImageId" />
-      </div>
-      <div class="text-center text-xl font-extrabold">
+    <div class="relative flex flex-col gap-4">
+      <div class="text-center text-xl font-extrabold h-[60px]">
         <div>wait!</div>
         <div>Truly the final, final?</div>
+      </div>
+      <div ref="imageContainer">
+        <OverlayImageInput :imageId="currentImageId" />
       </div>
       <CustomButton size="large" @click="handleNext">yes!</CustomButton>
     </div>
