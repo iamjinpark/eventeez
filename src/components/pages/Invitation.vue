@@ -4,10 +4,10 @@
       <img :src="image" alt="Invitation Preview" />
     </div>
     <div class="flex flex-col gap-4">
-      <CustomButton size="large" @click="handleNext" style="background-color: black; color: white">Link to Share</CustomButton>
+      <CustomButton size="large" @click="" style="background-color: black; color: white">Link to Share</CustomButton>
       <div class="flex gap-3">
-        <CustomButton size="small" @click="handleNext">Download JPG</CustomButton>
-        <CustomButton size="small" @click="handleNext">Try Again</CustomButton>
+        <CustomButton size="small" @click="">Download JPG</CustomButton>
+        <CustomButton size="small" @click="">Try Again</CustomButton>
       </div>
     </div>
   </div>

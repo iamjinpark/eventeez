@@ -2,11 +2,7 @@
   <div>
     <ul>
       <li class="w-[155px] h-[195px] bg-gray-300">
-        <img
-          :src="image.src"
-          :alt="image.alt"
-          class="w-full h-full object-cover"
-        />
+        <img :src="image.src" :alt="image.alt" class="w-full h-full object-fit" />
       </li>
     </ul>
   </div>

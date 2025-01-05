@@ -1,7 +1,7 @@
 <template>
   <div class="fixed inset-0 flex items-center justify-center" style="background-color: rgba(0, 0, 0, 0.7); z-index: 50" @click="closeModal">
     <div v-motion-pop @click.stop class="flex flex-col justify-center items-center gap-6">
-      <img :src="image?.src" :alt="image?.alt" class="object-cover w-[300px] h-[370px] relative" />
+      <img :src="image?.src" :alt="image?.alt" class="object-fit w-[300px] h-[370px] relative" />
       <CustomButton @click="goToMakePage">Want to make?</CustomButton>
     </div>
   </div>

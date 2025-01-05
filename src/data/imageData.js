@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 export const imageData = [
   {
     id: 1,
-    src: "/card.jpg",
+    src: "/testImg.jpg",
     alt: "Example Image 1",
     artist: "박예지",
     date: {

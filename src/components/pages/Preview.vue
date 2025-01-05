@@ -2,11 +2,11 @@
   <div class="w-[330px] flex flex-col items-center py-4">
     <img src="/step4.png" alt="날짜 입력" class="pb-4" />
     <div class="relative flex flex-col gap-4">
-      <div class="text-center text-xl font-extrabold h-[60px]">
-        <div>wait!</div>
-        <div>Truly the final, final?</div>
-      </div>
       <div ref="imageContainer">
+        <div class="text-center text-xl font-extrabold h-[60px]">
+          <div>wait!</div>
+          <div>Truly the final, final?</div>
+        </div>
         <OverlayImageInput :imageId="currentImageId" />
       </div>
       <CustomButton size="large" @click="handleNext">yes!</CustomButton>
@@ -32,18 +32,22 @@ const currentImageId = route.params.id;
 const sharedState = inject("sharedState");
 const resetSharedState = inject("resetSharedState");
 
-async function handleNext() {
+const handleNext = async () => {
   if (imageContainer.value) {
     try {
+      await document.fonts.ready;
+
       // Vue의 DOM 렌더링 완료 후 실행
       await nextTick();
+
+      console.log("devicePixelRatio", window.devicePixelRatio);
 
       // HTML2Canvas로 캡처
       const canvas = await html2canvas(imageContainer.value, {
         scale: 2, // 고해상도 캡처
         logging: true, // 디버깅 활성화
-        width: 330, // 캡처할 출력의 너비
-        height: 410, // 캡처할 출력의 높이
+        width: imageContainer.value.offsetWidth, // 캡처할 출력의 너비
+        height: imageContainer.value.offsetHeight, // 캡처할 출력의 높이
       });
       const imageData = canvas.toDataURL("image/png");
 
@@ -59,7 +63,7 @@ async function handleNext() {
       console.error("Failed to generate image:", error);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped></style>
