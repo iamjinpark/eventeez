@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* TailwindCSS의 img 태그 설정 무시로 인해 발생하는 문제, img를 inline-block으로 고정해주어 해결 */
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}

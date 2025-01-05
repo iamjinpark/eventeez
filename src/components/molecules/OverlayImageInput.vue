@@ -1,5 +1,5 @@
 <template>
-  <div v-if="image" class="relative w-full">
+  <div v-if="image" class="w-full">
     <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
     <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mb-4">
       <!-- Date Input 조건부 렌더링 -->
@@ -19,7 +19,7 @@
     </div>
 
     <!-- 이미지 -->
-    <img :src="image.src" :alt="image.alt" class="object-cover w-full h-[410px]" />
+    <img :src="image.src" :alt="image.alt" class="object-fit w-full h-[410px] relative" />
 
     <!-- 텍스트 오버레이 -->
     <div v-for="(value, key) in currentFields" :key="key" :style="getFieldStyle(key)" class="pointer-events-none">
@@ -83,6 +83,7 @@ const filteredFields = computed(() => {
 const getFieldStyle = (fieldName) => {
   if (!image.value || !image.value[fieldName]) return {};
   const field = image.value[fieldName];
+
   return {
     position: "absolute",
     top: field.position?.top || "0px",
