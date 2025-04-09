@@ -1,9 +1,18 @@
 <template>
   <div v-if="image" class="w-full">
     <!-- 입력 필드: 현재 라우트에 해당하는 필드만 표시 -->
-    <div v-if="route.name !== 'preview'" v-for="(value, key) in filteredFields" :key="`${key}-input`" class="mb-4">
+    <div
+      v-if="route.name !== 'preview'"
+      v-for="(value, key) in filteredFields"
+      :key="`${key}-input`"
+      class="mb-4"
+    >
       <!-- Date Input 조건부 렌더링 -->
-      <dateInput v-if="key == 'date'" v-model="currentFields[key]" :placeholder="`set a ${key}`" />
+      <dateInput
+        v-if="key == 'date'"
+        v-model="currentFields[key]"
+        :placeholder="`set a ${key}`"
+      />
 
       <!-- 일반 입력 필드 -->
       <v-text-field
@@ -13,16 +22,26 @@
         :id="key"
         type="text"
         :placeholder="`set a ${key}`"
+        :maxlength="30"
         autocomplete="off"
         class="w-full h-[60px]"
       ></v-text-field>
     </div>
 
     <!-- 이미지 -->
-    <img :src="image.src" :alt="image.alt" class="object-fit w-full h-[410px] relative" />
+    <img
+      :src="image.src"
+      :alt="image.alt"
+      class="object-fit w-full h-[410px] relative"
+    />
 
     <!-- 텍스트 오버레이 -->
-    <div v-for="(value, key) in currentFields" :key="key" :style="getFieldStyle(key)" class="pointer-events-none">
+    <div
+      v-for="(value, key) in currentFields"
+      :key="key"
+      :style="getFieldStyle(key)"
+      class="pointer-events-none"
+    >
       {{ value || " " }}
     </div>
   </div>
@@ -92,6 +111,12 @@ const getFieldStyle = (fieldName) => {
     fontFamily: field.fontFamily || "Arial, sans-serif",
     color: field.color || "black",
     fontWeight: field.fontWeight || "normal",
+    width: "110px",
+    maxHieght: "20px",
+    overflow: "hidden", // ← 넘친 텍스트 숨김
+    whiteSpace: "pre-wrap", // ← 줄바꿈 허용
+    wordBreak: "break-word", // ← 단어가 길어도 줄바꿈
+    lineHieght: "15px",
   };
 };
 </script>

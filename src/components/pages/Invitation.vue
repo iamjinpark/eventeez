@@ -4,20 +4,21 @@
       <img :src="image" alt="Invitation Preview" />
     </div>
     <div class="flex flex-col gap-4">
-      <CustomButton size="large" @click="" style="background-color: black; color: white">Link to Share</CustomButton>
+      <CustomButton size="large" @click="copyShareLink" style="background-color: black; color: white">Link to Share</CustomButton>
       <div class="flex gap-3">
         <CustomButton size="small" @click="downloadImage">Download JPG</CustomButton>
-        <CustomButton size="small" @click="">Try Again</CustomButton>
+        <CustomButton size="small" @click="moveToHome">Try Again</CustomButton>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import CustomButton from "@/components/atoms/CustomButton.vue";
 
 const route = useRoute();
+const router = useRouter();
 
 // URL 쿼리로 전달된 Base64 이미지 데이터
 const image = route.query.image;
@@ -43,5 +44,27 @@ const downloadImage = () => {
   } else {
     console.error("No image data available for download.");
   }
+};
+
+// 공유 링크 복사 함수
+const copyShareLink = () => {
+  if (image) {
+    const currentUrl = window.location.origin;
+    const shareUrl = `${currentUrl}/share?image=${encodeURIComponent(image)}`;
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() => {
+        alert("링크가 복사되었습니다!");
+      })
+      .catch((err) => {
+        console.error("링크 복사 실패:", err);
+      });
+  } else {
+    console.error("No image data available for sharing.");
+  }
+};
+
+const moveToHome = () => {
+  router.push("/home");
 };
 </script>

@@ -69,6 +69,11 @@ const router = createRouter({
           component: () => import("@/components/pages/Invitation.vue"),
         },
         {
+          name: "share",
+          path: "/share",
+          component: () => import("@/components/pages/ShareInvitation.vue"),
+        },
+        {
           name: "ui",
           path: "/ui",
           component: () => import("@/components/pages/ui.vue"),
