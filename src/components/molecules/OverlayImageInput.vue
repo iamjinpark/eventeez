@@ -111,12 +111,12 @@ const getFieldStyle = (fieldName) => {
     fontFamily: field.fontFamily || "Arial, sans-serif",
     color: field.color || "black",
     fontWeight: field.fontWeight || "normal",
-    width: "110px",
+    width: "auto",
     maxHieght: "20px",
     overflow: "hidden", // ← 넘친 텍스트 숨김
     whiteSpace: "pre-wrap", // ← 줄바꿈 허용
     wordBreak: "break-word", // ← 단어가 길어도 줄바꿈
-    lineHieght: "15px",
+    lineHieght: "12px",
   };
 };
 </script>
