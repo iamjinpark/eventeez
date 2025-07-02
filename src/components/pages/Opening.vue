@@ -48,7 +48,7 @@ function shuffleImages() {
 }
 
 function goToHomePage() {
-  router.push("/home");
+  router.push("/gallery");
 }
 </script>
 
