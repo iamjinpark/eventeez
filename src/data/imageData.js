@@ -1,5 +1,16 @@
 import { v4 as uuidv4 } from "uuid";
 
+// input 공통조건
+// {
+//   "date": { "w": 160, "h": 30 },
+//   "place": { "w": 260, "h": 36 },
+//   "content": { "w": 260, "h": 60 }
+// Pretendard, 16px
+// line-height: 1.5 추천
+// whiteSpace: "pre-wrap", // ← 줄바꿈 허용
+// wordBreak: "break-word", // ← 단어가 길어도 줄바꿈
+// }
+
 export const imageData = [
   {
     id: 1,
