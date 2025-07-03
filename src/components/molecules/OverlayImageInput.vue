@@ -8,7 +8,7 @@
       class="mb-4"
     >
       <!-- Date Input 조건부 렌더링 -->
-      <dateInput
+      <DateInput
         v-if="key == 'date'"
         v-model="currentFields[key]"
         :placeholder="`set a ${key}`"
@@ -22,27 +22,24 @@
         :id="key"
         type="text"
         :placeholder="`set a ${key}`"
-        :maxlength="30"
         autocomplete="off"
         class="w-full h-[60px]"
+        :maxlength="fieldMaxLengths[key]"
       ></v-text-field>
     </div>
 
-    <!-- 이미지 -->
-    <img
-      :src="image.src"
-      :alt="image.alt"
-      class="object-fit w-full h-[410px] relative"
-    />
+    <div class="relative w-[330px] h-[410px]">
+      <img :src="image.src" class="w-full h-full object-cover" />
 
-    <!-- 텍스트 오버레이 -->
-    <div
-      v-for="(value, key) in currentFields"
-      :key="key"
-      :style="getFieldStyle(key)"
-      class="pointer-events-none"
-    >
-      {{ value || " " }}
+      <!-- 텍스트 오버레이 -->
+      <div
+        v-for="(value, key) in currentFields"
+        :key="key"
+        :style="getFieldStyle(key)"
+        class="absolute pointer-events-none"
+      >
+        {{ value || " " }}
+      </div>
     </div>
   </div>
   <div v-else>
@@ -54,7 +51,8 @@
 import { inject, computed, ref, onMounted, watch } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
-import dateInput from "../atoms/dateInput.vue";
+import DateInput from "../atoms/DateInput.vue";
+import { injectFontLinks } from "@/utils/fontUtils.js";
 
 // sharedState와 resetSharedState를 inject로 가져오기
 const sharedState = inject("sharedState");
@@ -102,6 +100,11 @@ const filteredFields = computed(() => {
 const getFieldStyle = (fieldName) => {
   if (!image.value || !image.value[fieldName]) return {};
   const field = image.value[fieldName];
+  const maxHeights = {
+    date: "30px",
+    address: "36px",
+    content: "60px",
+  };
 
   return {
     position: "absolute",
@@ -112,11 +115,49 @@ const getFieldStyle = (fieldName) => {
     color: field.color || "black",
     fontWeight: field.fontWeight || "normal",
     width: "auto",
-    maxHieght: "20px",
-    overflow: "hidden", // ← 넘친 텍스트 숨김
+    maxWidth: "220px",
+    maxHeight: maxHeights[fieldName] || "20px",
+
     whiteSpace: "pre-wrap", // ← 줄바꿈 허용
     wordBreak: "break-word", // ← 단어가 길어도 줄바꿈
-    lineHieght: "12px",
+    lineHeight: field.fontSize || "16px",
   };
 };
+
+// 입력시 글자수 제한
+const getMaxCharCount = (fieldName, fontSize = "16px") => {
+  const heightPx =
+    {
+      date: 30,
+      address: 36,
+      content: 60,
+    }[fieldName] || 20;
+
+  const size = parseFloat(fontSize);
+  const lines = Math.floor(heightPx / size);
+  const charsPerLine = 18;
+
+  return lines * charsPerLine;
+};
+
+const fieldMaxLengths = computed(() => {
+  if (!image.value) return {};
+
+  const result = {};
+  const fieldNames = ["date", "address", "content"];
+
+  fieldNames.forEach((fieldName) => {
+    const fontSize = image.value[fieldName]?.fontSize || "16px";
+    result[fieldName] = getMaxCharCount(fieldName, fontSize);
+  });
+
+  return result;
+});
+
+// 폰트 링크 삽입
+onMounted(() => {
+  if (image.value?.fontLinks) {
+    injectFontLinks(image.value.fontLinks);
+  }
+});
 </script>

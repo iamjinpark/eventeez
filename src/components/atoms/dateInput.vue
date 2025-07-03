@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- v-menu를 사용하여 Date-picker가 인풋 바로 아래에 위치 -->
-    <v-menu v-model="menu" :close-on-content-click="false" transition="scale-transition" :offset="[0, 0]">
+    <v-menu
+      v-model="menu"
+      :close-on-content-click="false"
+      transition="scale-transition"
+      :offset="[0, 0]"
+    >
       <template #activator="{ props }">
         <!-- 클릭 시 Date-picker를 여는 Text-field -->
         <v-text-field
@@ -20,7 +25,11 @@
 
       <!-- Vuetify Date-picker -->
       <v-card>
-        <v-date-picker v-model="selectedDate" @update:model-value="onDateChange" show-adjacent-months></v-date-picker>
+        <v-date-picker
+          v-model="selectedDate"
+          @update:model-value="onDateChange"
+          show-adjacent-months
+        ></v-date-picker>
         <v-card-actions>
           <v-btn text @click="clearDate">clear</v-btn>
           <v-spacer></v-spacer>
