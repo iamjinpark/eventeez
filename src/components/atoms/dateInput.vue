@@ -41,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 
 // Props 정의
 const props = defineProps({

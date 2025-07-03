@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 
 // input 공통조건
 // {
-//   "date": { "w": 160, "h": 30 },
-//   "place": { "w": 260, "h": 36 },
-//   "content": { "w": 260, "h": 60 }
+//   "date": { "w": 60, "h": 30 },
+//   "place": { "w": 220, "h": 36 },
+//   "content": { "w": 220, "h": 60 }
 // Pretendard, 16px
 // line-height: 1.5 추천
 // whiteSpace: "pre-wrap", // ← 줄바꿈 허용
@@ -156,6 +156,78 @@ export const imageData = [
       fontSize: "14px",
       fontFamily: "Reenie Beanie, sans-serif",
       color: "#A32828",
+      fontWeight: "regular",
+    },
+  },
+  {
+    id: 5,
+    src: "/frame5.png",
+    alt: "Example Image 5",
+    fontLinks: [
+      "https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&display=swap'",
+    ],
+    date: {
+      position: { top: "265px", left: "93px" },
+      fontSize: "16px",
+      fontFamily: "Sansita Swashed, sans-serif",
+      color: "#38513D",
+      fontWeight: "regular",
+    },
+    time: {
+      position: { top: "150px", left: "82px" },
+      fontSize: "30px",
+      fontFamily: "Reenie Beanie, sans-serif",
+      color: "yellow",
+      fontWeight: "regular",
+    },
+    address: {
+      position: { top: "297px", left: "93px" },
+      fontSize: "14px",
+      fontFamily: "Sansita Swashed, sans-serif",
+      color: "#38513D",
+      fontWeight: "regular",
+    },
+    content: {
+      position: { top: "334px", left: "93px" },
+      fontSize: "14px",
+      fontFamily: "Sansita Swashed, sans-serif",
+      color: "#38513D",
+      fontWeight: "regular",
+    },
+  },
+  {
+    id: 6,
+    src: "/frame6.png",
+    alt: "Example Image 6",
+    fontLinks: [
+      "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'",
+    ],
+    date: {
+      position: { top: "0px", left: "130px" },
+      fontSize: "35px",
+      fontFamily: "Inter, sans-serif",
+      color: "black",
+      fontWeight: "bold",
+    },
+    time: {
+      position: { top: "150px", left: "83px" },
+      fontSize: "30px",
+      fontFamily: "Reenie Beanie, sans-serif",
+      color: "yellow",
+      fontWeight: "regular",
+    },
+    address: {
+      position: { top: "172px", left: "97px" },
+      fontSize: "14px",
+      fontFamily: "Inter, sans-serif",
+      color: "black",
+      fontWeight: "regular",
+    },
+    content: {
+      position: { top: "220px", left: "97px" },
+      fontSize: "14px",
+      fontFamily: "Inter, sans-serif",
+      color: "black",
       fontWeight: "regular",
     },
   },

@@ -51,7 +51,7 @@
 import { inject, computed, ref, onMounted, watch } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
-import DateInput from "../atoms/DateInput.vue";
+import DateInput from "@/components/atoms/DateInput.vue";
 import { injectFontLinks } from "@/utils/fontUtils.js";
 
 // sharedState와 resetSharedState를 inject로 가져오기
