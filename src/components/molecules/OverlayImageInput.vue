@@ -8,7 +8,7 @@
       class="mb-4"
     >
       <!-- Date Input 조건부 렌더링 -->
-      <dateInput
+      <DateInput
         v-if="key == 'date'"
         v-model="currentFields[key]"
         :placeholder="`set a ${key}`"
@@ -51,7 +51,7 @@
 import { inject, computed, ref, onMounted, watch } from "vue";
 import { imageData } from "@/data/imageData.js";
 import { useRoute } from "vue-router";
-import dateInput from "../atoms/dateInput.vue";
+import DateInput from "@/components/atoms/DateInput.vue";
 import { injectFontLinks } from "@/utils/fontUtils.js";
 
 // sharedState와 resetSharedState를 inject로 가져오기
